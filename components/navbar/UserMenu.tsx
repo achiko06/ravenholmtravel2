@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -39,6 +39,22 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
     rentModal.onOpen();
   }, [loginModal, rentModal, currentUser]);
+
+  useEffect(() => {
+    const closeUserMenu = () => {
+      if (isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    // Add a click event listener to the document
+    document.addEventListener("click", closeUserMenu);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener("click", closeUserMenu);
+    };
+  }, [isOpen]);
 
   return ( 
     <div className="relative">
