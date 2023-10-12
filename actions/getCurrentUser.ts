@@ -26,7 +26,7 @@ export default async function getCurrentUser() {
 
     return {
       ...currentUser,
-      createdAt: currentUser.createdAt.toISOString(),
+      createdAt: currentUser.createdAt.toISOString(), // to prevent Next.js client error caused by date type
       updatedAt: currentUser.updatedAt.toISOString(),
       emailVerified: 
         currentUser.emailVerified?.toISOString() || null,
