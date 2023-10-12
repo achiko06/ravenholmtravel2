@@ -1,4 +1,4 @@
-import { Nunito } from 'next/font/google'
+import { Share_Tech_Mono } from 'next/font/google'
 
 import Navbar from '@/components/navbar/Navbar';
 import LoginModal from '@/components/modals/LoginModal';
@@ -13,11 +13,12 @@ import ClientOnly from '@/components/ClientOnly';
 import getCurrentUser from '@/actions/getCurrentUser';
 
 export const metadata = {
-  title: 'Airbnb',
-  description: 'Airbnb Clone',
+  title: 'Ravenholm Travel',
+  description: 'Created by ravenholmdev.com',
 }
 
-const font = Nunito({ 
+const font = Share_Tech_Mono({
+  weight: '400', 
   subsets: ['latin'], 
 });
 
