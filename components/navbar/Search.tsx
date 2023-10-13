@@ -57,10 +57,11 @@ const Search = () => {
         border-[1px] 
         w-full 
         md:w-auto 
-        py-2 
-        rounded-full 
+        py-1 
+        rounded-2xl 
         shadow-sm 
-        hover:shadow-md 
+        hover:shadow-md
+        hover:shadow-lightGold 
         transition 
         cursor-pointer
       "
@@ -113,6 +114,8 @@ const Search = () => {
             className="
               p-2 
               bg-primary
+              hover:bg-lightGold
+              duration-700
               rounded-full 
               text-white
             "

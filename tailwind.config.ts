@@ -20,6 +20,9 @@ const config: Config = {
         yellowcustom: "#d0ff00",
         lightgray: "#D1D3D4",
       },
+      screens: {
+        xs: "450px",
+      },
     },
   },
   plugins: [],

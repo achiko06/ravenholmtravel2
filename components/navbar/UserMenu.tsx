@@ -12,6 +12,9 @@ import { SafeUser } from "@/types";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import DropdownWrapper from "../wrappers/DropdownWrapper";
+import { offerItems } from "@/constants";
+import { MdLocalOffer } from "react-icons/md";
 
 interface UserMenuProps {
   currentUser?: SafeUser | null
@@ -26,11 +29,14 @@ const UserMenu: React.FC<UserMenuProps> = ({
   const registerModal = useRegisterModal();
   const rentModal = useRentModal();
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [activeModal, setActiveModal] = useState<number>(0)
+  const toggle = (id: number) => {
+      setActiveModal(id);
+  }; // try to merge with toggleOpen 
 
-  const toggleOpen = useCallback(() => {
-    setIsOpen((value) => !value);
-  }, []);
+  const toggleOpen = () => { // move this to hooks later to use globally
+    activeModal === 1 ? toggle(0) : toggle(1)
+  }
 
   const onRent = useCallback(() => {
     if (!currentUser) {
@@ -42,8 +48,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
   useEffect(() => {
     const closeUserMenu = () => {
-      if (isOpen) {
-        setIsOpen(false);
+      if (activeModal !== 0) {
+        toggle(0);
       }
     };
 
@@ -54,68 +60,46 @@ const UserMenu: React.FC<UserMenuProps> = ({
     return () => {
       document.removeEventListener("click", closeUserMenu);
     };
-  }, [isOpen]);
+  }, [activeModal]);
 
   return ( 
     <div className="relative">
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center gap-3 md:min-w-[200px]">
         <div 
-          onClick={onRent}
-          className="
-            hidden
-            md:block
-            text-sm 
-            font-semibold 
-            py-3 
-            px-4 
-            rounded-full 
-            hover:bg-neutral-100 
-            transition 
-            cursor-pointer
-          "
+          onClick={() => {activeModal === 2 ? toggle(0) : toggle(2)}}
+          className="block text-sm font-semibold py-2 px-4 rounded-full bg-secondary hover:bg-lightGold duration-700 transition cursor-pointer select-none"
         >
-          Rent your home
+          <span className="hidden sm:block select-none">
+            Offers
+          </span>
+          <span className="block sm:hidden select-none">
+            <MdLocalOffer />
+          </span>
         </div>
+        {activeModal === 2 ?
+        <DropdownWrapper>
+          {offerItems.map(item => (
+            <MenuItem
+              key={item.id} 
+              label={item.label}
+              onClick={() => router.push(item.href)}
+            />
+          )
+          )}
+        </DropdownWrapper>
+        : <></>}
         <div 
-        onClick={toggleOpen}
-        className="
-          p-4
-          md:py-1
-          md:px-2
-          border-[1px] 
-          border-neutral-200 
-          flex 
-          flex-row 
-          items-center 
-          gap-3 
-          rounded-full 
-          cursor-pointer 
-          hover:shadow-md 
-          transition
-          "
+          onClick={toggleOpen}
+          className="p-4 md:py-1 md:px-2 border-[1px] text-secondary hover:text-primary bg-primary hover:bg-lightGold duration-700 border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
         >
           <AiOutlineMenu />
-          <div className="hidden md:block">
+          <div className="hidden md:block select-none">
             <Avatar src={currentUser?.image} />
           </div>
         </div>
       </div>
-      {isOpen && (
-        <div 
-          className="
-            absolute 
-            rounded-xl 
-            shadow-md
-            w-[40vw]
-            md:w-3/4 
-            bg-white 
-            overflow-hidden 
-            right-0 
-            top-12 
-            text-sm
-          "
-        >
-          <div className="flex flex-col cursor-pointer">
+      {activeModal === 1 && (
+        <DropdownWrapper>
             {currentUser ? (
               <>
                 <MenuItem 
@@ -154,10 +138,13 @@ const UserMenu: React.FC<UserMenuProps> = ({
                   label="Sign up" 
                   onClick={registerModal.onOpen}
                 />
+                <MenuItem 
+                  label="Rent your home" 
+                  onClick={onRent}
+                />
               </>
             )}
-          </div>
-        </div>
+        </DropdownWrapper>
       )}
     </div>
    );
