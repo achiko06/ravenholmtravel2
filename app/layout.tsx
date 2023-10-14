@@ -11,6 +11,7 @@ import ToasterProvider from '@/providers/ToasterProvider';
 import './globals.css'
 import ClientOnly from '@/components/ClientOnly';
 import getCurrentUser from '@/actions/getCurrentUser';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   title: 'Ravenholm Travel',
@@ -43,6 +44,7 @@ export default async function RootLayout({
         <div className="pb-20 pt-28">
           {children}
         </div>
+        <Footer/>
       </body>
     </html>
   )
