@@ -5,9 +5,9 @@ const Hero = () => {
     <section className="shadow-sm  dark:bg-gray-900">
         <div 
             className="relative flex items-center justify-center w-full h-screen text-center bg-center bg-cover " 
-            style={{backgroundImage: 'url(https://res.cloudinary.com/dvrk2468z/image/upload/v1697310568/retro-neon_rsdfcj.gif)', height: '560px'}}
+            style={{backgroundImage: 'url(https://res.cloudinary.com/dvrk2468z/image/upload/v1697364595/island2_cbrqo8.jpg)', height: '560px'}}
         >
-            <div className="absolute top-0 bottom-0 left-0 right-0 bg-primary opacity-50" />
+            <div className="absolute top-0 bottom-0 left-0 right-0 bg-primary opacity-20" />
             <div className="z-10 px-4 sm:px-6 lg:px-8">
             <div className="text-center">
                 <h2 className="mb-6 text-4xl font-medium leading-10 tracking-tight text-gray-50 md:text-6xl">

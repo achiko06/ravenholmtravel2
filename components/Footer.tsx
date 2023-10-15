@@ -1,4 +1,5 @@
 // WORK IN PROGRESS
+import { offerItems } from '@/constants'
 import Link from 'next/link'
 
 const Footer = () => {
@@ -19,14 +20,14 @@ const Footer = () => {
                 <div className="w-16 mb-4 border-b-2 border-gray-300 " />
                 <ul>
                     <li className="mb-4">
-                    <Link href="#" className="inline-block text-base font-normal text-gray-400 ">Home</Link>
+                    <Link href="#" className="inline-block text-base font-normal text-gray-200 hover:text-secondary duration-700">Home</Link>
                     </li>
                     <li className="mb-4">
-                    <Link href="#" className="inline-block text-base font-normal text-gray-400 ">
+                    <Link href="#" className="inline-block text-base font-normal text-gray-200 hover:text-secondary duration-700 ">
                         About Us</Link>
                     </li>
                     <li className="mb-4">
-                    <Link href="#" className="inline-block text-base font-normal text-gray-400 dark:text-gray-400">
+                    <Link href="#" className="inline-block text-base font-normal text-gray-200 hover:text-secondary duration-700">
                         Contact
                     </Link>
                     </li>
@@ -38,21 +39,13 @@ const Footer = () => {
                 </h2>
                 <div className="w-16 mb-4 border-b-2 border-gray-300 " />
                 <ul>
-                    <li className="mb-4">
-                    <Link href="#" className="inline-block text-base font-normal text-gray-400">
-                        Buses & Trains
-                    </Link>
-                    </li>
-                    <li className="mb-4">
-                    <Link href="#" className="inline-block text-base font-normal text-gray-400">
-                        Flights    
-                    </Link>
-                    </li>
-                    <li className="mb-4">
-                    <Link href="#" className="inline-block text-base font-normal text-gray-400">
-                       Holidays
-                    </Link>
-                    </li>
+                    {offerItems.map(item => (
+                        <li className="mb-4" key={item.id}>
+                        <Link href={item.href} className="inline-block text-base font-normal text-gray-200 hover:text-secondary duration-700">
+                           {item.label}
+                        </Link>
+                        </li>
+                    ))}
                 </ul>
                 </div>
                 <div className="w-full px-4 mb-11 lg:mb-0 md:w-1/3 lg:w-3/12">
@@ -84,8 +77,17 @@ const Footer = () => {
                 </div>
                 </div>
             </div>
-            <div className="pt-4 text-center text-gray-300 dark:text-gray-400">
-                <span>© RavenHolmDev 2023. All Rights Reserved</span>
+            <div className="pt-4 text-center text-gray-300">
+                © 
+                <Link 
+                    href="https://ravenholmdev.com/about"
+                    target="_blank"
+                    rel="noreferrer"  
+                    className="mx-1 hover:text-secondary font-bold cursor-pointer duration-700"
+                >
+                   RavenHolmDev_
+                </Link>
+                <span>2023. All Rights Reserved</span>
             </div>
             </div>
         </div>

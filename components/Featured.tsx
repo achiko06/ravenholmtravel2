@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Featured = () => {
   return (
-    <section className="flex items-center bg-gray-100 dark:bg-gray-900 ">
+    <section className="flex items-center bg-white ">
         <div className="container justify-center flex-1 px-4 py-4 mx-auto text-left lg:py-10 ">
             <div className="mx-auto max-w-7xl py-11">
             <h2 className="pb-4 text-4xl font-bold text-center text-gray-800 dark:text-gray-400">
@@ -28,8 +28,9 @@ const Featured = () => {
                         </Link>
                     </div>
                     <div className="absolute z-10 hidden group-hover:block bottom-4 left-4">
-                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-blue-300">
-                        Natural Scenery</Link>
+                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-secondary">
+                            Title
+                        </Link>
                         <p className="mb-0 text-xs text-gray-300">lorem ipsum</p>
                     </div>
                     </div>
@@ -50,8 +51,9 @@ const Featured = () => {
                         </Link>
                     </div>
                     <div className="absolute z-10 hidden group-hover:block bottom-4 left-4">
-                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-blue-300">
-                        Natural Scenery</Link>
+                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-secondary">
+                            Title
+                        </Link>
                         <p className="mb-0 text-xs text-gray-300">lorem ipsum</p>
                     </div>
                     </div>
@@ -74,8 +76,9 @@ const Featured = () => {
                         </Link>
                     </div>
                     <div className="absolute z-10 hidden group-hover:block bottom-4 left-4">
-                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-blue-300">
-                        Natural Scenery</Link>
+                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-secondary">
+                            Title
+                        </Link>
                         <p className="mb-0 text-xs text-gray-300">lorem ipsum</p>
                     </div>
                     </div>
@@ -98,8 +101,9 @@ const Featured = () => {
                         </Link>
                     </div>
                     <div className="absolute z-10 hidden group-hover:block bottom-4 left-4">
-                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-blue-300">
-                        Natural Scenery</Link>
+                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-secondary">
+                            Title
+                        </Link>
                         <p className="mb-0 text-xs text-gray-300">lorem ipsum</p>
                     </div>
                     </div>
@@ -120,8 +124,9 @@ const Featured = () => {
                         </Link>
                     </div>
                     <div className="absolute z-10 hidden group-hover:block bottom-4 left-4">
-                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-blue-300">
-                        Natural Scenery</Link>
+                        <Link href="#" className="text-lg font-medium text-white transition duration-500 hover:text-secondary">
+                            Title
+                        </Link>
                         <p className="mb-0 text-xs text-gray-300">lorem ipsum</p>
                     </div>
                     </div>
